@@ -1,0 +1,28 @@
+import husdon.model.*;
+@Library('Jenkinsfile-script') _
+node {
+    
+    def repourl = 'https://192.168.104.185/svn/BXCX/source/dev/bxcx/cashier/bxpt-cashier-desk-page'
+	//修改以上信息根据实际情况      
+    def profile= "test,prod"
+	def recipients = ''     
+    def UploadPs = "Flase"
+    def SonarOpen = "false"
+    
+    def urlfile = "${JENKINS_HOME}/common-extended"
+    
+               
+    stage('Initialization') {
+
+        
+		command = "tar -zcf"
+
+    // 初始化函数库扩展组件
+    }
+    
+
+    
+    SVNxNPM("${repourl}","${SonarOpen}","${urlfile}","${profile}","${UploadPs}","${command}","${recipients}")
+    
+    
+}

@@ -1,0 +1,28 @@
+import husdon.model.*;
+@Library('Jenkinsfile-script') _
+node {
+    
+    def repourl = 'SVNURL'
+	//修改以上信息根据实际情况      
+    def profile= ""
+	def recipients = ''     
+    
+    def SonarOpen = "false"
+    
+    def urlfile = "${JENKINS_HOME}/common-extended"
+    
+               
+    stage('Initialization') {
+
+        mvnHome = tool 'M3'
+		command = "tar -zcf"
+
+    // 初始化函数库扩展组件
+    }
+    
+
+    
+    SVNxHTML("${repourl}","${SonarOpen}","${urlfile}","${profile}","${command}","${recipients}")
+    
+    
+}

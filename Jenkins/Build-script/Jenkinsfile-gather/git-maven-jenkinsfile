@@ -1,0 +1,46 @@
+import husdon.model.*;
+@Library('Jenkinsfile-script') _
+node {
+    // 目前包传输到170上，输出URL格式为 IP/目录名/分支名/HASH前8位-构建号-日期/包名
+    def giturl = "REPOURL"//cicd_code_url
+    def Branch = "*BRANCH"
+	//需要根据项目情况输入如下信息
+    def profile= "PROFILE"//cicd_profile
+    def Dir = "DIR"                         //进入单个目录执行
+    
+    jdkHome = tool "JDK"//cicd_middleware_info
+	//修改以上信息根据实际情况      
+	
+    env.JAVA_HOME = "${jdkHome}"             
+    env.PATH = "${env.JAVA_HOME}/bin:${env.PATH}" 
+    
+	def recipients = "EMAILPEOPLE"//cicd_mail_address
+	
+    //sonar和单元测试的开关
+    def SonarOpen = "SONAROPENSWITCH"//cicd_if_sonar
+    def SONARCLASS = "SONARCLASSSWITCH"//cicd_sonar_style
+    
+    def UNITTEST = "UNITTESTSWITCH"//cicd_unit_testing
+    
+    
+    //构建前后的命令
+    def PRESTEPS = "PRESTEPSCOMMOND"//cicd_pre_steps
+    def POSTSTEPS = "POSTSTEPSCOMMOND"//cicd_post_steps
+    
+    def urlfile = "${JENKINS_HOME}/common-extended"
+    
+               
+    stage('Initialization') {
+        
+        
+        mvnHome = tool 'M3'
+		command = "${mvnHome}/bin/mvn -U -B -Dmaven.test.skip=true clean deploy"//cicd_goals_options
+		UNITTESTCOMMOND = "${mvnHome}/bin/mvn test"
+		    
+    // 初始化函数库扩展组件
+    }
+
+    // 代码检出
+    GITxMAVEN("${giturl}","${Branch}","${Dir}","${PRESTEPS}","${SonarOpen}","${SONARCLASS}","${UNITTEST}","${urlfile}","${profile}","${command}","${UNITTESTCOMMOND}","${POSTSTEPS}","${recipients}")
+
+}

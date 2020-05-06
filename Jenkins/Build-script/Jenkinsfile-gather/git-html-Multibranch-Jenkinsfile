@@ -1,0 +1,40 @@
+import husdon.model.*;
+@Library('Jenkinsfile-script') _
+node {
+    // 目前包传输到170上，输出URL格式为 IP/目录名/分支名/HASH前8位-构建号-日期/包名
+    //需要根据项目情况输入如下信息
+    
+    
+    jdkHome = tool 'JDK_1.8'        // 可填参数 JDK_1.6 JDK_1.7 JDK_1.8  指定JDK版本号，只会对构建产生影响 
+	//修改以上信息根据实际情况      
+	
+    env.JAVA_HOME = "${jdkHome}"             
+    env.PATH = "${env.JAVA_HOME}/bin:${env.PATH}" 
+    
+	def recipients = ''     
+    
+    def SonarOpen = "false"
+    def Dir = ""
+    def urlfile = "${JENKINS_HOME}/common-extended"
+    
+
+    
+               
+    stage('Initialization') {
+        
+        
+        mvnHome = tool 'M3'
+		command = ""
+
+		
+
+        // 初始化函数库扩展组件
+    }
+
+    // 代码检出
+    
+    GITxHTMLxMultibranch("${Dir}","${SonarOpen}","${urlfile}","${command}","${recipients}")
+    
+    
+               
+}

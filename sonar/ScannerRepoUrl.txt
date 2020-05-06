@@ -1,0 +1,1 @@
+http://gitlab.sinoiov.com/FHCORE/Server/core.git#dev
