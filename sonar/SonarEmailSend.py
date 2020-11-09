@@ -304,7 +304,7 @@ table.gridtable td {
            				<span style="float:right;">%s</span>
        				</div> <br/>
 				"""%(H,now_time)+a+"""
-			<font size="4">质量阀规则：<a href="http://wiki.com/pages/viewpage.action?pageId=15315580"><font size="4">http://wiki.sinoiov.com/pages/viewpage.action?pageId=15315580</a>
+			<font size="4">质量阀规则：<a href="http://wiki.com/pages/viewpage.action?pageId=15315580"><font size="4">http://wiki.com/pages/viewpage.action?pageId=15315580</a>
 						  """ 
 			, 'html', 'utf-8')
 		msg['From']=formataddr([my_sender,my_sender])   #括号里的对应发件人邮箱昵称、发件人邮箱账号
