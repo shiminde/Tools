@@ -15,7 +15,7 @@ ipaddr==2.1.11
 ipaddress==1.0.16
 IPy==0.75
 javapackages==1.0.0
-Jinja2==2.7.2
+Jinja2==2.10.1
 jmespath==0.9.4
 kitchen==1.1.1
 libvirt-python==4.5.0
