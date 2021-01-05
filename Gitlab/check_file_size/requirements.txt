@@ -4,7 +4,7 @@ backports.ssl-match-hostname==3.5.0.1
 cffi==1.6.0
 chardet==2.2.1
 configobj==4.7.2
-cryptography==1.7.2
+cryptography==3.2
 decorator==3.4.0
 DingtalkChatbot==1.5.1
 enum34==1.0.4
