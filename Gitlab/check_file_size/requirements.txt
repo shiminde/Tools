@@ -8,7 +8,7 @@ cryptography==1.7.2
 decorator==3.4.0
 DingtalkChatbot==1.5.1
 enum34==1.0.4
-httplib2==0.18.1
+httplib2==0.19.0
 idna==2.4
 iniparse==0.4
 ipaddr==2.1.11
